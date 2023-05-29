@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    //"checkJs": true,
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"]
+    },
+    "types": ["mocha", "node"],
+    "lib": ["es2016", "dom"], // Include 'es2016' or later here
+  },
+  "include": ["src/**/*", "src/classes/**/*.js", "src/funcs/**/*.js", "src/classes/**/*.ts", "src/funcs/**/*.ts"],
+  "exclude": ["node_modules"],
+  
+}

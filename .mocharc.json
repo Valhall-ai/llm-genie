@@ -1,0 +1,7 @@
+{
+    "extension": ["js", "ts"],
+    "loader": "ts-node/esm",
+    "spec": "src/*/*.test.ts",
+    "recursive": true,
+    "exclude": ["node_modules/**/*.test.ts", "node_modules/**/*.test.js"]
+}

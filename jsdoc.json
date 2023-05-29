@@ -1,0 +1,51 @@
+{
+  "source": {
+    "includePattern": ".+\\.(js|ts)(doc|x)?$",
+    "include": ["./dist/", "README.md"],
+    "excludePattern": "\\.(test\\.ts|.test\\.js)$"
+  },
+  "tags": {
+    "allowUnknownTags": ["optional"]
+  },
+  "plugins": [],
+  "opts": {
+    "recurse": true,
+    "verbose": true,
+    "destination": "./jsdocs/",
+    "readme": "README.md",
+    "template": "node_modules/clean-jsdoc-theme",
+    "theme_opts": {
+      "default_theme": "dark",
+      "homepageTitle": "LLM-Genie",
+      "title": "<a href='index.html' class='sidebar-title'>LLM-Genie</a>",
+      "menu": [
+        {
+          "title": "Website1",
+          "link": "https://ankdev.me/clean-jsdoc-theme/dark/",
+          "target": "_blank"
+        },
+        {
+          "title": "Website2",
+          "link": "https://ankdev.me/clean-jsdoc-theme/dark/",
+          "target": "_blank"
+        },
+        {
+          "title": "Website3",
+          "link": "https://ankdev.me/clean-jsdoc-theme/dark/",
+          "target": "_blank"
+        }
+      ],
+      "sections": ["Classes", "Tutorials", "Global"],
+      "codepen": {
+        "enable_for": ["examples"],
+        "options": {
+          
+        }
+      }
+    }
+  },
+  "markdown": {
+    "hardwrap": false,
+    "idInHeadings": true
+  }
+}

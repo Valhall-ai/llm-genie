@@ -1,0 +1,64 @@
+{
+  "name": "llm-genie",
+  "version": "0.1.1",
+  "description": "LLM Genie is an (ultra light-weight) JavaScript library for developers that simplies advanced usage of Large Language Model APIs such as GPT from OpenAI. It's compatible with browser and Node.js JavaScript runtime environments.",
+  "main": "dist/llm.js",
+  "scripts": {
+    "build": "npm run test && tsc && webpack && npm run document",
+    "build-quick": "tsc && webpack && npm run document",
+    "document": "jsdoc --configure ./jsdoc.json --tutorials ./examples && npx open-cli ./jsdocs/index.html",
+    "test": "mocha"
+  },
+  "licenses": [
+    {
+      "type": "MPL-2.0",
+      "url": "https://www.mozilla.org/en-US/MPL/2.0/"
+    }
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "extensions": [
+    ".js",
+    ".ts"
+  ],
+  "browser": "dist/llm.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jt0dd/llm-genie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/repo/issues"
+  },
+  "keywords": [
+    "llm-genie",
+    "openai",
+    "gpt",
+    "gpt-3",
+    "gpt-4"
+  ],
+  "author": "Jonathan Todd",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.2.5",
+    "better-docs": "^2.7.2",
+    "clean-jsdoc-theme": "^4.2.7",
+    "jsdoc": "^3.6.11",
+    "open-cli": "^7.2.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "timers-browserify": "^2.0.12",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "tsd-jsdoc": "^2.5.0",
+    "typescript": "^4.9.5",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1"
+  },
+  "files": [
+    "dist"
+  ]
+}
