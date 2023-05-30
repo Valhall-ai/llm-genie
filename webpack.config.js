@@ -8,6 +8,7 @@ module.exports = {
     filename: 'llm.min.js',
     path: path.resolve(__dirname, 'dist'),
     library: 'LLMGenie',
+    libraryExport: 'default',
     libraryTarget: 'umd',
     globalObject: 'this',
   },
