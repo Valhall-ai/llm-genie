@@ -1,7 +1,7 @@
 {
   "source": {
     "includePattern": ".+\\.(js|ts)(doc|x)?$",
-    "include": ["./dist/", "README.md"],
+    "include": ["./dist/"],
     "excludePattern": "\\.(test\\.ts|.test\\.js)$"
   },
   "tags": {
@@ -12,12 +12,15 @@
     "recurse": true,
     "verbose": true,
     "destination": "./jsdocs/",
-    "readme": "README.md",
+    "readme": "README-docs.md",
     "template": "node_modules/clean-jsdoc-theme",
     "theme_opts": {
       "default_theme": "dark",
       "homepageTitle": "LLM-Genie",
       "title": "<a href='index.html' class='sidebar-title'>LLM-Genie</a>",
+      "include_css": [
+        "./src/css/jsdoc.css"
+      ],
       "menu": [
         {
           "title": "Website1",

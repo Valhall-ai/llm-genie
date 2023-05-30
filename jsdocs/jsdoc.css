@@ -1,0 +1,45 @@
+@import url("https://use.typekit.net/iew3sml.css");
+
+h1,
+h2,
+h3,
+h4,
+.sidebar-title,
+.sidebar-section-title {
+  font-family: "gesta", sans-serif !important;
+}
+
+.sidebar-section-title,
+.sidebar,
+.sidebar-section-children-container,
+.details,
+.pre-div,
+code {
+  border-radius: 5px !important;
+}
+
+.pre-div {
+    overflow: hidden;
+}
+
+table td:first-child,
+.params td:first-child,
+table thead th:first-child,
+.params thead th:first-child,
+.props thead th:first-child {
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+}
+
+table td:last-child,
+.params td:last-child,
+table thead th:last-child,
+.params thead th:last-child,
+.props thead th:last-child {
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+.name {
+  font-weight: 400 !important;
+}
