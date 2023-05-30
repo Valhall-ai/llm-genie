@@ -1,7 +1,7 @@
 {
   "name": "llm-genie",
-  "version": "0.1.1",
-  "description": "LLM Genie is an (ultra light-weight) JavaScript library for developers that simplies advanced usage of Large Language Model APIs such as GPT from OpenAI. It's compatible with browser and Node.js JavaScript runtime environments.",
+  "version": "0.1.2",
+  "description": "LLM Genie is an (ultra light-weight) JavaScript library that simplies advanced usage of Large Language Model APIs such as GPT from OpenAI. It's compatible with browser and Node.js JavaScript runtime environments.",
   "main": "dist/llm.js",
   "scripts": {
     "build": "npm run test && tsc && webpack && npm run document",
