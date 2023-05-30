@@ -23,7 +23,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LLMGenie = void 0;
 const format_validator_1 = __importDefault(require("../classes/format-validator"));
 const validator = new format_validator_1.default();
 function isValidList(obj) {
@@ -586,5 +585,5 @@ class LLMGenie {
         });
     }
 }
-exports.LLMGenie = LLMGenie;
+exports.default = LLMGenie;
 //# sourceMappingURL=llm.js.map

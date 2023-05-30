@@ -1,5 +1,5 @@
 import assert = require("assert");
-import { LLMGenie } from "./llm";
+import LLMGenie from "./llm";
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({

@@ -8,9 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const assert = require("assert");
-const llm_1 = require("./llm");
+const llm_1 = __importDefault(require("./llm"));
 const openai_1 = require("openai");
 const configuration = new openai_1.Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -20,7 +23,7 @@ describe("LLM", function () {
     this.timeout(0);
     let llm;
     beforeEach(() => {
-        llm = new llm_1.LLMGenie({
+        llm = new llm_1.default({
             queryFunc: (messages, options = {}) => __awaiter(this, void 0, void 0, function* () {
                 const request = Object.assign({ model: "gpt-4-0314", temperature: 0.7, max_tokens: 2000, top_p: 1, messages: messages }, options);
                 return yield openai.createChatCompletion(request);

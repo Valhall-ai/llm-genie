@@ -88,7 +88,7 @@ class Tracker {
 /**
  * A class for interacting with the GPT.
  */
-export class LLMGenie {
+class LLMGenie {
   jobs: any[];
   queryFunc: Function;
   encode: Function;
@@ -768,3 +768,5 @@ export class LLMGenie {
     return revisedInput;
   }
 }
+
+export default LLMGenie;
