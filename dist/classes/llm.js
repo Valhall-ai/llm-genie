@@ -188,9 +188,9 @@ class LLMGenie {
                     options["temperature"] = defaults.temperature;
                 const response = yield createChatCompletion(messages, this.queryFunc, options);
                 console.log("response", response);
-                results.push(response.data.choices[0].message.content);
+                results.push(response.content);
                 tracker.addNode("query", {
-                    usage: response.data.usage,
+                    usage: response.usage,
                 });
             }
             if (defaults.improve.passes > 0) {
