@@ -31,12 +31,12 @@ function isValidList(obj) {
 function isValidatorResultWithStringList(obj) {
     return obj && typeof obj.list !== "undefined";
 }
-function createChatCompletion(request, queryFunc, maxRetries = 5, initialDelay = 1000, maxDelay = 60000) {
+function createChatCompletion(messages, queryFunc, options = {}, maxRetries = 5, initialDelay = 1000, maxDelay = 60000) {
     return __awaiter(this, void 0, void 0, function* () {
         let delay = initialDelay;
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
-                const response = yield queryFunc(request);
+                const response = yield queryFunc(messages, options);
                 return response;
             }
             catch (error) {
@@ -176,18 +176,17 @@ class LLMGenie {
                 if (defaults.systemPrompt)
                     messages.push({ role: "system", content: defaults.systemPrompt });
                 messages.push(chunk);
-                const request = {
-                    messages: messages,
+                const options = {
                     max_tokens: maxQueryResponseTokens,
                     temperature: defaults.temperature,
                 };
                 if (defaults.topP)
-                    request["top_p"] = defaults.topP;
+                    options["top_p"] = defaults.topP;
                 if (defaults.maxQueryResponseTokens)
-                    request["max_tokens"] = defaults.maxQueryResponseTokens;
+                    options["max_tokens"] = defaults.maxQueryResponseTokens;
                 if (defaults.temperature)
-                    request["temperature"] = defaults.temperature;
-                const response = yield createChatCompletion(request, this.queryFunc);
+                    options["temperature"] = defaults.temperature;
+                const response = yield createChatCompletion(messages, this.queryFunc, options);
                 console.log("response", response);
                 results.push(response.data.choices[0].message.content);
                 tracker.addNode("query", {

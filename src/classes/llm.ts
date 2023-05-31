@@ -17,7 +17,7 @@ interface ValidatorResult<T = any> {
 
 interface Message {
   role: string;
-  content: any;
+  content: string;
 }
 
 function isValidList(obj: any): obj is { list: any[] } {
@@ -31,8 +31,9 @@ function isValidatorResultWithStringList(
 }
 
 async function createChatCompletion(
-  request: any,
+  messages: any,
   queryFunc: any,
+  options = {},
   maxRetries = 5,
   initialDelay = 1000,
   maxDelay = 60000
@@ -40,7 +41,7 @@ async function createChatCompletion(
   let delay = initialDelay;
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      const response = await queryFunc(request);
+      const response = await queryFunc(messages, options);
       return response;
     } catch (error) {
       const jitter = Math.random() * 0.2 * delay;
@@ -232,16 +233,15 @@ class LLMGenie {
       if (defaults.systemPrompt)
         messages.push({ role: "system", content: defaults.systemPrompt });
       messages.push(chunk);
-      const request = {
-        messages: messages,
+      const options = {
         max_tokens: maxQueryResponseTokens,
         temperature: defaults.temperature,
       };
-      if (defaults.topP) request["top_p"] = defaults.topP;
+      if (defaults.topP) options["top_p"] = defaults.topP;
       if (defaults.maxQueryResponseTokens)
-        request["max_tokens"] = defaults.maxQueryResponseTokens;
-      if (defaults.temperature) request["temperature"] = defaults.temperature;
-      const response = await createChatCompletion(request, this.queryFunc);
+      options["max_tokens"] = defaults.maxQueryResponseTokens;
+      if (defaults.temperature) options["temperature"] = defaults.temperature;
+      const response = await createChatCompletion(messages, this.queryFunc, options);
       console.log("response", response);
       results.push(response.data.choices[0].message.content);
       tracker.addNode("query", {
